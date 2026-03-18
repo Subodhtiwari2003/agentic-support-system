@@ -2,7 +2,18 @@ import os
 
 # Define project structure
 structure = {
-        "services": {},
+        "services": {
+            "classifier": {
+                "agent.py": ""
+            },
+            "retriever": {
+                "rag.py": "",
+                "load_data.py": ""
+            },
+            "responder": {
+                "agent.py": ""
+            }
+        },
         "orchestrator": {},
         "api": {},
         "ui": {},
