@@ -1,0 +1,10 @@
+[
+  {
+    "query": "How long does refund take?",
+    "expected_answer": "5-7 business days"
+  },
+  {
+    "query": "App is not working",
+    "expected_answer": "restart or reinstall"
+  }
+]
