@@ -13,7 +13,10 @@ st.set_page_config(
 )
 
 # ─── Config ─────────────────────────────────────────────────────────────────
-API_BASE_URL = st.secrets.get("API_BASE_URL", "http://localhost:8000")
+import os
+API_BASE_URL = os.environ.get("API_BASE_URL") \
+    or st.secrets.get("API_BASE_URL", "http://localhost:8000") \
+    if hasattr(st, "secrets") else os.environ.get("API_BASE_URL", "http://localhost:8000")
 
 # ─── Custom CSS ─────────────────────────────────────────────────────────────
 st.markdown("""
