@@ -1,11 +1,12 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from orchestrator.graph import graph
 
 app = FastAPI()
 
-@app.get("/")
-def health():
-    return {"status": "running"}
+@app.get("/", response_class=FileResponse)
+def read_root():
+    return FileResponse("api/index.html")
 
 @app.post("/query")
 def query(q: str):
