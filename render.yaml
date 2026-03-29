@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: api
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+      # Add other env vars as needed, e.g., OPENAI_API_KEY from secrets
+
+  - type: web
+    name: ui
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run ui/app.py --server.port $PORT --server.headless true --server.address 0.0.0.0
+    envVars:
+      - key: API_BASE_URL
+        value: http://api:8000
+      # Add other env vars as needed
