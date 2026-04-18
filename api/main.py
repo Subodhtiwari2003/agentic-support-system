@@ -15,3 +15,8 @@ def query(q: str):
         "intent": result["intent"],
         "response": result["response"]
     }
+
+@app.on_event("startup")
+def startup_event():
+    # rebuild the vector store from data/docs/
+    pass
