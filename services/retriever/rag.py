@@ -7,7 +7,7 @@ from langchain_text_splitters import CharacterTextSplitter
 
 # Initialize embeddings with Google
 embeddings = GoogleGenerativeAIEmbeddings(
-    model="models/embedding-001",
+    model="models/text-embedding-004",
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
 
