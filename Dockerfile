@@ -2,16 +2,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install only OS deps needed (no build tools for heavy ML)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-
-# Force install exactly pinned versions, ignoring dependency conflicts
-RUN pip install --no-cache-dir --no-deps -r requirements.txt \
-    && pip install --no-cache-dir "uvicorn==0.30.6"
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
