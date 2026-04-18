@@ -16,4 +16,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
+# Ensure data/docs directory exists in container
+RUN mkdir -p data/docs
+
 CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
