@@ -1,6 +1,7 @@
-from langchain.document_loaders import TextLoader
-from langchain.vectorstores import Chroma
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import CharacterTextSplitter
 
 def load_documents():
     loader = TextLoader("data/docs/faq.txt")
@@ -8,7 +9,7 @@ def load_documents():
 
     db = Chroma.from_documents(
         documents,
-        OpenAIEmbeddings(),
+        GoogleGenerativeAIEmbeddings(),
         persist_directory="data/db"
     )
 
