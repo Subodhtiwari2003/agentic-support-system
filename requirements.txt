@@ -6,3 +6,4 @@ langgraph==0.2.0
 google-generativeai==0.8.0
 requests==2.32.0
 python-dotenv==1.0.1
+click==8.1.7   # added manually
