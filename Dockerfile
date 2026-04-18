@@ -8,8 +8,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
+
+# Force install pinned versions, ignoring dependency conflicts
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir --no-deps -r requirements.txt && \
+    pip install --no-cache-dir "uvicorn==0.30.6"
 
 COPY . .
 
