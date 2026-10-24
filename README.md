@@ -173,4 +173,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built with LangChain for agent orchestration
 - Uses FAISS for efficient vector search
-- Inspired by modern AI agent architectures.
+- Inspired by modern AI agent architectures
